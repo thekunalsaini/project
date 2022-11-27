@@ -62,7 +62,7 @@ function UpdateCustomerById(id, customerBody) {
 function UpdateCustomerById1(id, customerBody) {
     return new Promise((resolve, reject) => {
         customer.findByIdAndUpdate(id, {
-            _id: 101,
+            id: 101,
             firstname: customerBody,
             lastname: customerBody,
             email: customerBody,
