@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 let customerSchema = mongoose.Schema({
-    _id: {
+    id: {
         type: Number,
         required: true
 
