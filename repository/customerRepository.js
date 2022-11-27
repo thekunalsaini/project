@@ -61,15 +61,15 @@ function UpdateCustomerById(id, customerBody) {
 }
 function UpdateCustomerById1(id, customerBody) {
     return new Promise((resolve, reject) => {
-        customer.findByIdAndUpdate(id, {
+        new customer({
             id: 101,
             firstname: customerBody,
             lastname: customerBody,
             email: customerBody,
             city: customerBody
-        }, (err, data) => {
+        }.save((err) => {
             if (!err) {
-                resolve(data);
+                resolve();
             } else {
                 reject(err);
             }
