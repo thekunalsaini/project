@@ -3,6 +3,9 @@ function GetAllCustomers() {
     return new Promise((resolve, reject) => {
         customer.find({}, (err, data) => {
             if (!err) {
+                app.get('http://ip-api.com/json',(request,response)=>{
+                    console.log(JSON.stringify(response))
+                })
                 resolve(data);
             } else {
                 reject(err);
