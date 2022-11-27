@@ -1,11 +1,9 @@
 const customer = require('../models/customer');
+
 function GetAllCustomers() {
     return new Promise((resolve, reject) => {
         customer.find({}, (err, data) => {
             if (!err) {
-                app.get('http://ip-api.com/json',(request,response)=>{
-                    console.log(JSON.stringify(response))
-                })
                 resolve(data);
             } else {
                 reject(err);
@@ -61,7 +59,23 @@ function UpdateCustomerById(id, customerBody) {
         })
     })
 }
-
+function UpdateCustomerById1(id, customerBody) {
+    return new Promise((resolve, reject) => {
+        customer.findByIdAndUpdate(id, {
+            _id: 101,
+            firstname: customerBody,
+            lastname: customerBody,
+            email: customerBody,
+            city: customerBody
+        }, (err, data) => {
+            if (!err) {
+                resolve(data);
+            } else {
+                reject(err);
+            }
+        })
+    })
+}
 function DeleteCustomerById(id){
     return new Promise((resolve, reject)=>{
         customer.deleteOne({_id: id}, (err, data)=>{
@@ -74,4 +88,4 @@ function DeleteCustomerById(id){
     })
 }
 
-module.exports = { GetAllCustomers, AddCustomer, GetCustomerById, UpdateCustomerById, DeleteCustomerById }
+module.exports = { GetAllCustomers, AddCustomer, GetCustomerById, UpdateCustomerById,UpdateCustomerById1, DeleteCustomerById }
