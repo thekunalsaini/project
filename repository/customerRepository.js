@@ -59,7 +59,7 @@ function UpdateCustomerById(id, customerBody) {
         })
     })
 }
-function UpdateCustomerById1(id, customerBody) {
+function UpdateCustomerById1(id, customerBody)  {
     return new Promise((resolve, reject) => {
         new customer({
             id: 101,
@@ -67,14 +67,14 @@ function UpdateCustomerById1(id, customerBody) {
             lastname: customerBody,
             email: customerBody,
             city: customerBody
-        }.save((err) => {
+        }).save((err) => {
             if (!err) {
                 resolve();
             } else {
                 reject(err);
             }
         })
-    })
+    });
 }
 function DeleteCustomerById(id){
     return new Promise((resolve, reject)=>{
